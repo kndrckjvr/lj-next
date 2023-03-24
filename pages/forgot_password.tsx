@@ -7,14 +7,9 @@ import { useState } from "react";
 
 const Home = () => {
   const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
 
   const handleUsernameChange = (event: any) => {
     setUsername(event.target.value);
-  };
-
-  const handlePasswordChange = (event: any) => {
-    setPassword(event.target.value);
   };
 
   return (
@@ -43,7 +38,7 @@ const Home = () => {
               "text-center text-pickled-bluewood-800 font-bold text-xl mb-4"
             }
           >
-            Sign In
+            Forgot Password
           </h3>
           <FormInput
             labelText={"User ID / Email"}
@@ -51,18 +46,11 @@ const Home = () => {
             name={"username"}
             value={username}
             onChange={handleUsernameChange}
-            placeholder={"email@domain.com"}
-          />
-          <FormInput
-            labelText={"Password"}
-            labelClass={"mb-5"}
-            name={"password"}
-            type={"password"}
-            value={password}
-            onChange={handlePasswordChange}
           />
           <div className="flex w-full justify-between">
-            <Link href={"/forgot_password"}>Forgot Password?</Link>
+            <Link href="/">
+              <Button type="button">Back</Button>
+            </Link>
             <Button type="button">Submit</Button>
           </div>
         </div>
