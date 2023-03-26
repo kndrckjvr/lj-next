@@ -1,6 +1,7 @@
 import Image from "next/image";
 import classNames from "classnames";
 import * as Icon from "react-feather";
+import AppIcon from "./AppIcon";
 
 const NavigationBar = () => {
   return (
@@ -21,15 +22,15 @@ const NavigationBar = () => {
         </div>
         <div className="flex flex-row items-center justify-between py-[16px] flex-grow">
           <div className="flex flex-row items-center">
-            <Icon.Menu className="ml-5 md:mr-10 mr-5" />
+            <AppIcon name="Menu" className="ml-5 md:mr-10 mr-5" />
             <h1 className="font-semibold md:text-lg text-xs">
               Smart Water Pump Dashboard
             </h1>
           </div>
           <div className="flex flex-row">
-            <Icon.HardDrive className="md:mr-10 mr-5" />
-            <Icon.Bell className="md:mr-10 mr-5" />
-            <Icon.User className="md:mr-10 mr-5" />
+            <AppIcon name="HardDrive" className="md:mr-10 mr-5" />
+            <AppIcon name="Bell" className="md:mr-10 mr-5" />
+            <AppIcon name="User" className="md:mr-10 mr-5" />
           </div>
         </div>
       </div>

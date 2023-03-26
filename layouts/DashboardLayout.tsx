@@ -10,10 +10,12 @@ const DashboardLayout = (props: PropsWithChildren) => {
           <NavigationBar></NavigationBar>
         </nav>
         <div className="flex flex-row flex-grow">
-          <div className="bg-white w-64">
+          <div className="bg-white w-64 max-md:hidden pt-16">
             <Sidebar></Sidebar>
           </div>
-          <div className="container overflow-auto">{props.children}</div>
+          <div className="flex-grow overflow-y-auto overflow-x-hidden max-h-screen pt-16 pr-4">
+            {props.children}
+          </div>
         </div>
       </div>
     </>

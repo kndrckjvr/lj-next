@@ -1,32 +1,68 @@
-import Image from "next/image";
-import classNames from "classnames";
-import * as Icon from "react-feather";
+import { SidebarData } from "@/types/types";
+import AppIcon from "./AppIcon";
+import SidebarItem from "./SidebarItem";
+import SidebarItemChild from "./SidebarItemChild";
 
 const Sidebar = () => {
+  const sidebarData: SidebarData[] = [
+    {
+      name: "Dashboard",
+      icon: "Home",
+      path: "/dashboard/flooddetection",
+      isParent: true,
+      child: [
+        {
+          name: "Smart Fire Extinguisher",
+          path: "/dashboard/flooddetection",
+          icon: "Home",
+        },
+        {
+          name: "Smart Water Meter",
+          path: "/dashboard/flooddetection",
+          icon: "Home",
+        },
+        {
+          name: "Smart Pump System",
+          path: "/dashboard/flooddetection",
+          icon: "Home",
+        },
+        {
+          name: "Flood Detection",
+          path: "/dashboard/flooddetection",
+          icon: "Home",
+        },
+      ],
+    },
+    {
+      name: "Settings",
+      icon: "Settings",
+      path: "/settings",
+      isParent: false,
+      child: [],
+    },
+  ];
+
   return (
     <>
-      <ul>
-        <li className="flex flex-row p-4">
-          <Icon.Home className="mr-3" />
-          Dashboard
-        </li>
-        <li className="flex flex-row p-4">
-          <Icon.Home className="mr-3" />
-          Dashboard
-        </li>
-        <li className="flex flex-row p-4">
-          <Icon.Home className="mr-3" />
-          Dashboard
-        </li>
-        <li className="flex flex-row p-4">
-          <Icon.Home className="mr-3" />
-          Dashboard
-        </li>
-        <li className="flex flex-row p-4">
-          <Icon.Home className="mr-3" />
-          Dashboard
-        </li>
-      </ul>
+      <div className="flex flex-col w-full">
+        {sidebarData.map((sidebar, index) => (
+          <SidebarItem
+            name={sidebar.name}
+            path={sidebar.path}
+            isParent={sidebar.isParent}
+            icon={sidebar.icon}
+            key={index}
+          >
+            {sidebar.child.map((child, childKey) => (
+              <SidebarItemChild
+                name={child.name}
+                path={child.path}
+                key={childKey}
+              />
+            ))}
+          </SidebarItem>
+        ))}
+      </div>
     </>
   );
 };

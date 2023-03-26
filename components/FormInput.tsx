@@ -1,10 +1,5 @@
+import { FormInputProps } from "@/types/types";
 import classNames from "classnames";
-
-interface FormInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  labelText: string;
-  labelClass?: string;
-  errorMessage?: string;
-}
 
 const FormInput = ({
   name,

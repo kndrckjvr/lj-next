@@ -1,0 +1,10 @@
+.SidebarItemChild {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+/* Add active class to the selected accordion section */
+.SidebarItemChild.active {
+  transition: max-height 0.5s ease-in-out; /* Add a slower transition to create a smooth animation */
+}

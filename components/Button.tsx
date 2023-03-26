@@ -1,9 +1,5 @@
+import { ButtonProps } from "@/types/types";
 import classNames from "classnames";
-
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  className?: string;
-  isLoading?: boolean;
-}
 
 const Button = ({
   className,
