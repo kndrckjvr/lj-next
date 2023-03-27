@@ -16,7 +16,7 @@ const DashboardLayout = ({ className, children }: DashboardProps) => {
       <div className="flex h-screen bg-gray-100">
         <div
           className={classNames(
-            "fixed z-20 inset-y-0 left-0 w-64 transition duration-300 ease-in-out transform",
+            "fixed z-20 inset-y-0 left-0 w-64 transition duration-300 ease-linear transform",
             {
               "translate-x-0": isSidebarOpen,
               "-translate-x-full": !isSidebarOpen,
@@ -35,7 +35,7 @@ const DashboardLayout = ({ className, children }: DashboardProps) => {
         />
         <div
           className={classNames(
-            "flex flex-col flex-grow overflow-hidden transition-all duration-500 ease-in-out transform",
+            "flex flex-col flex-grow overflow-hidden transition-all duration-300 ease-linear transform",
             {
               "md:ml-64": isSidebarOpen,
               "ml-0": !isSidebarOpen,
