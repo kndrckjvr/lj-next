@@ -1,4 +1,5 @@
 import { IconName } from "@/components/AppIcon";
+import React from "react";
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -21,11 +22,12 @@ export interface SidebarData {
   child: SidebarChildData[];
 }
 
-export interface SidebarProps {
+export interface SidebarItemProps {
   name: string;
   path: string;
   icon: IconName;
   isParent: boolean;
+  child?: SidebarChildData[];
   children?: React.ReactNode;
 }
 
@@ -39,4 +41,24 @@ export interface SidebarChildProps {
   name: string;
   icon?: IconName;
   path: string;
+}
+
+export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+  children?: React.ReactNode;
+}
+
+export interface DashboardProps extends React.HTMLAttributes<HTMLDivElement> {
+  children?: React.ReactNode;
+  grid?: string | number;
+  gap?: string | number;
+}
+
+export interface NavigationBar {
+  onToggleSidebar: () => void;
+}
+
+export interface NavigationBarIconProps {
+  icon: IconName;
+  badge?: string | number;
+  badgeColor?: string;
 }

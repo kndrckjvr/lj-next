@@ -1,10 +1,21 @@
 import { SidebarChildProps } from "@/types/types";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import classNames from "classnames";
 
 const SidebarItemChild = ({ name, path }: SidebarChildProps) => {
+  const router = useRouter();
+
   return (
-    <Link className="flex flex-row ml-4 mb-4" href={path}>
-      {name}
+    <Link
+      className={classNames("block p-2", {
+        "font-semibold": router.pathname === path,
+      })}
+      href={path}
+    >
+      <div className="flex flex-row p-2 rounded hover:bg-slate-400 hover:text-white hover:font-semibold transition-all duration-300">
+        {name}
+      </div>
     </Link>
   );
 };

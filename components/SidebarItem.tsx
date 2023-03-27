@@ -1,9 +1,9 @@
-import { SidebarProps } from "@/types/types";
+import { SidebarItemProps } from "@/types/types";
 import Link from "next/link";
-import AppIcon from "./AppIcon";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import styles from "@/styles/Sidebar.module.css";
+import { AppIcon } from ".";
 import { useRouter } from "next/router";
 
 const SidebarItem = ({
@@ -11,54 +11,71 @@ const SidebarItem = ({
   icon,
   path,
   isParent,
+  child,
   children,
-}: SidebarProps) => {
+}: SidebarItemProps) => {
   const childCount = React.Children.count(children);
-  let isContentClose = true;
+  const [isContentOpen, setContentOpen] = useState(false);
 
   const childReference = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
-  const handleAnimateChild = () => {
+  const toggleContent = (content?: boolean) => {
     if (childReference?.current === null) {
       return;
     }
 
-    let { current } = childReference;
+    let { style, scrollHeight } = childReference.current;
 
-    current.style.maxHeight = isContentClose
-      ? `${current.scrollHeight}px`
-      : "0px";
-    isContentClose = !isContentClose;
+    if (content === true) {
+      style.maxHeight = `${scrollHeight}px`;
+    } else if (content === false) {
+      style.maxHeight = "0px";
+    } else {
+      style.maxHeight = !isContentOpen ? `${scrollHeight}px` : "0px";
+    }
+
+    setContentOpen(content === undefined ? !isContentOpen : content);
   };
+
+  useEffect(() => {
+    if (child?.map((e) => e.path).includes(router.pathname)) {
+      toggleContent(true);
+    }
+  }, []);
 
   return (
     <div>
       {isParent ? (
-        <div
-          className="flex flex-row p-4 cursor-pointer hover:bg-slate-300 transition-all duration-300"
-          onClick={handleAnimateChild}
-        >
-          <AppIcon name={icon} className="mr-3" />
-          {name}
+        <div className="p-2 cursor-pointer" onClick={() => toggleContent()}>
+          <div className="flex flex-row p-2 justify-between rounded hover:bg-slate-300 transition-all duration-300">
+            <div className="flex flex-row">
+              <AppIcon name={icon} className="mr-3" />
+              {name}
+            </div>
+            <div>
+              <AppIcon name={isContentOpen ? "ChevronUp" : "ChevronDown"} />
+            </div>
+          </div>
         </div>
       ) : (
-        <Link
-          href={path}
-          className="flex flex-row p-4 hover:bg-slate-300 transition-all duration-300"
-        >
-          <AppIcon name={icon} className="mr-3" />
-          {name}
+        <Link href={path} className="p-2 block">
+          <div className="flex flex-row p-2 rounded hover:bg-slate-300 transition-all duration-300">
+            <AppIcon name={icon} className="mr-3" />
+            {name}
+          </div>
         </Link>
       )}
-      <div
-        className={classNames(styles.SidebarItemChild, "bg-slate-100", {
-          hidden: childCount === 0,
-        })}
-        ref={childReference}
-      >
-        <div className="flex flex-col pt-4">{children}</div>
-      </div>
+      {childCount > 0 && (
+        <div
+          className={classNames(styles.SidebarItemChild, "bg-slate-300", {
+            hidden: childCount === 0,
+          })}
+          ref={childReference}
+        >
+          <div className="flex flex-col">{children}</div>
+        </div>
+      )}
     </div>
   );
 };

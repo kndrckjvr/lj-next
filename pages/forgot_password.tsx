@@ -45,13 +45,24 @@ const Home = () => {
             labelClass={"mb-5"}
             name={"username"}
             value={username}
+            placeholder={"email@domain.com"}
             onChange={handleUsernameChange}
           />
-          <div className="flex w-full justify-between">
+          <div className="flex w-full justify-between mb-16">
             <Link href="/">
               <Button type="button">Back</Button>
             </Link>
             <Button type="button">Submit</Button>
+          </div>
+          <div className="flex w-full justify-end">
+            <Image
+              src="/LingjackDigitalLogo.png"
+              alt="Lingjack Digital Logo"
+              className={classNames("mb-2 w-40")}
+              width={400}
+              height={400}
+              priority
+            />
           </div>
         </div>
       </div>

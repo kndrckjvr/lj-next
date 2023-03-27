@@ -1,39 +1,42 @@
-import Image from "next/image";
-import classNames from "classnames";
-import * as Icon from "react-feather";
-import AppIcon from "./AppIcon";
+import { NavigationBar } from "@/types/types";
+import { AppIcon, NavigationBarIcon } from ".";
 
-const NavigationBar = () => {
+const NavigationBar = ({ onToggleSidebar }: NavigationBar) => {
   return (
     <>
-      <div className="bg-white flex flex-row shadow-md w-screen">
-        <div className="flex flex-row items-center justify-center w-64 max-md:hidden">
-          <Image
-            src="/lingjack_login.png"
-            alt="Lingjack Digital Logo"
-            className={classNames("mr-2 w-8")}
-            width={400}
-            height={400}
-            priority
-          />
-          <h1 className="font-bold text-pickled-bluewood-800 uppercase text-sm">
-            Lingjack Digital
-          </h1>
-        </div>
-        <div className="flex flex-row items-center justify-between py-[16px] flex-grow">
-          <div className="flex flex-row items-center">
-            <AppIcon name="Menu" className="ml-5 md:mr-10 mr-5" />
-            <h1 className="font-semibold md:text-lg text-xs">
-              Smart Water Pump Dashboard
-            </h1>
+      <header className="flex-shrink-0">
+        <div className="bg-white flex flex-row shadow w-full">
+          <div className="flex flex-row items-center justify-between flex-grow">
+            <div className="flex flex-row items-center py-[16px]">
+              <AppIcon
+                name="Menu"
+                className="ml-5 md:mr-10 mr-5 cursor-pointer"
+                onClick={onToggleSidebar}
+              />
+              <h1 className="font-semibold md:text-lg text-xs">
+                Smart Water Pump Dashboard
+              </h1>
+            </div>
+            <div className="flex flex-row max-sm:hidden">
+              <NavigationBarIcon icon="Globe" />
+              <NavigationBarIcon
+                icon="HardDrive"
+                badge={3}
+                badgeColor={"bg-green-500"}
+              />
+              <NavigationBarIcon
+                icon="Bell"
+                badge={3}
+                badgeColor={"bg-red-700"}
+              />
+              <NavigationBarIcon icon="User" />
+            </div>
+            <div className="hidden max-sm:block">
+              <NavigationBarIcon icon="MoreVertical" />
+            </div>
           </div>
-          <div className="flex flex-row">
-            <AppIcon name="HardDrive" className="md:mr-10 mr-5" />
-            <AppIcon name="Bell" className="md:mr-10 mr-5" />
-            <AppIcon name="User" className="md:mr-10 mr-5" />
-          </div>
         </div>
-      </div>
+      </header>
     </>
   );
 };

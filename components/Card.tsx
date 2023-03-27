@@ -1,8 +1,11 @@
-import { PropsWithChildren } from "react";
+import { CardProps } from "@/types/types";
+import classNames from "classnames";
 
-const Card = (props: PropsWithChildren) => {
+const Card = ({ className, children }: CardProps) => {
   return (
-    <div className="bg-white m-2 rounded w-full p-4">{props.children}</div>
+    <div className={classNames(className)}>
+      <div className="m-1 p-4 bg-white rounded shadow-lg">{children}</div>
+    </div>
   );
 };
 

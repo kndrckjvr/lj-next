@@ -1,11 +1,13 @@
 import { Button, FormInput } from "@/components";
 import FormCardLayout from "@/layouts/FormCardLayout";
+import { getGoogleCaptchaKey } from "@/utils";
 import classNames from "classnames";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
 const Home = () => {
+  let recaptchaSiteKey = getGoogleCaptchaKey();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -61,9 +63,21 @@ const Home = () => {
             value={password}
             onChange={handlePasswordChange}
           />
-          <div className="flex w-full justify-between">
+          <div className="flex w-full justify-between mb-4">
             <Link href={"/forgot_password"}>Forgot Password?</Link>
+          </div>
+          <div className="flex w-full justify-end mb-16">
             <Button type="button">Submit</Button>
+          </div>
+          <div className="flex w-full justify-end">
+            <Image
+              src="/LingjackDigitalLogo.png"
+              alt="Lingjack Digital Logo"
+              className={classNames("mb-2 w-40")}
+              width={400}
+              height={400}
+              priority
+            />
           </div>
         </div>
       </div>

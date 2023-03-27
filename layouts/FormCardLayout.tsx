@@ -11,11 +11,12 @@ const FormCardLayout = (props: PropsWithChildren) => {
         <div
           className={classNames(
             styles.FormCardLayout,
-            "w-full shadow-2xl h-auto max-md:h-screen"
+            "w-full shadow-2xl h-auto max-md:h-screen flex flex-col"
           )}
         >
-          <div className="flex flex-row max-md:flex-col">{props.children}</div>
-          <div className="bg-pickled-bluewood-900 text-pickled-bluewood-50 p-4 flex flex-row justify-end max-md:fixed max-md:w-full max-md:bottom-0">
+          <div className="flex flex-row max-md:flex-col max-md:mb-10">{props.children}</div>
+          <div className="max-md:flex-1"></div>
+          <div className="bg-pickled-bluewood-900 text-pickled-bluewood-50 p-4 flex flex-row justify-end max-md:w-full">
             <div className="flex flex-col uppercase text-xs">
               <span>Smart Monitoring and Control System (V5.3)</span>
               <span>Copyright © 2023 Lingjack Digital Pte Ltd.</span>

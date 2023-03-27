@@ -1,21 +1,56 @@
 import NavigationBar from "@/components/NavigationBar";
 import Sidebar from "@/components/Sidebar";
-import { PropsWithChildren } from "react";
+import { DashboardProps } from "@/types/types";
+import classNames from "classnames";
+import { useState } from "react";
 
-const DashboardLayout = (props: PropsWithChildren) => {
+const DashboardLayout = ({ className, children }: DashboardProps) => {
+  const [isSidebarOpen, setSidebarOpen] = useState(true);
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!isSidebarOpen);
+  };
+
   return (
     <>
-      <div className="flex flex-col h-screen w-screen overflow-hidden">
-        <nav className="bg-gray-800 fixed">
-          <NavigationBar></NavigationBar>
-        </nav>
-        <div className="flex flex-row flex-grow">
-          <div className="bg-white w-64 max-md:hidden pt-16">
-            <Sidebar></Sidebar>
-          </div>
-          <div className="flex-grow overflow-y-auto overflow-x-hidden max-h-screen pt-16 pr-4">
-            {props.children}
-          </div>
+      <div className="flex h-screen bg-gray-100">
+        <div
+          className={classNames(
+            "fixed z-20 inset-y-0 left-0 w-64 transition duration-300 ease-in-out transform",
+            {
+              "translate-x-0": isSidebarOpen,
+              "-translate-x-full": !isSidebarOpen,
+            }
+          )}
+        >
+          <Sidebar />
+        </div>
+        <div
+          className={`${
+            isSidebarOpen
+              ? "opacity-0 pointer-events-none max-sm:opacity-50 max-sm:pointer-events-auto"
+              : "opacity-0 pointer-events-none"
+          } fixed inset-0 z-10 bg-black transition-opacity duration-300`}
+          onClick={toggleSidebar}
+        />
+        <div
+          className={classNames(
+            "flex flex-col flex-grow overflow-hidden transition-all duration-500 ease-in-out transform",
+            {
+              "md:ml-64": isSidebarOpen,
+              "ml-0": !isSidebarOpen,
+            }
+          )}
+        >
+          <NavigationBar onToggleSidebar={toggleSidebar} />
+          <main
+            className={classNames(
+              "overflow-x-hidden overflow-y-auto bg-gray-100 p-2 flex flex-row flex-wrap",
+              className
+            )}
+          >
+            {children}
+          </main>
         </div>
       </div>
     </>

@@ -1,179 +1,25 @@
-import Card from "@/components/Card";
+import { Card } from "@/components";
 import DashboardLayout from "@/layouts/DashboardLayout";
 
-const SmartFloodDetection = () => {
+const FloodDetection = () => {
   return (
     <DashboardLayout>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
-      <Card>
-        <h1>Hello</h1>
-      </Card>
+      {new Array(100).fill("").map((e, i) => (
+        <Card className="w-1/3 max-md:w-1/2 max-sm:w-full" key={i}>
+          <h1>Flood Detection, {i + 1}</h1>
+          <h1>Flood Detection, {i + 1}</h1>
+          <h1>Flood Detection, {i + 1}</h1>
+          <h1>Flood Detection, {i + 1}</h1>
+          <h1>Flood Detection, {i + 1}</h1>
+          <h1>Flood Detection, {i + 1}</h1>
+          <h1>Flood Detection, {i + 1}</h1>
+          <h1>Flood Detection, {i + 1}</h1>
+          <h1>Flood Detection, {i + 1}</h1>
+          <h1>Flood Detection, {i + 1}</h1>
+        </Card>
+      ))}
     </DashboardLayout>
   );
 };
 
-export default SmartFloodDetection;
+export default FloodDetection;
