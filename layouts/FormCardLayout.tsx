@@ -1,8 +1,8 @@
 import classNames from "classnames";
 import styles from "@/styles/Home.module.css";
-import { PropsWithChildren } from "react";
+import { FormCardLayoutProps } from "@/types/types";
 
-const FormCardLayout = (props: PropsWithChildren) => {
+const FormCardLayout = ({ children }: FormCardLayoutProps) => {
   return (
     <>
       <div
@@ -14,7 +14,9 @@ const FormCardLayout = (props: PropsWithChildren) => {
             "w-full shadow-2xl h-auto max-md:h-screen flex flex-col"
           )}
         >
-          <div className="flex flex-row max-md:flex-col max-md:mb-10">{props.children}</div>
+          <div className="flex flex-row max-md:flex-col max-md:mb-10">
+            {children}
+          </div>
           <div className="max-md:flex-1"></div>
           <div className="bg-pickled-bluewood-900 text-pickled-bluewood-50 p-4 flex flex-row justify-end max-md:w-full">
             <div className="flex flex-col uppercase text-xs">

@@ -45,23 +45,26 @@ const SidebarItem = ({
   }, []);
 
   return (
-    <div>
+    <div className="text-sm">
       {isParent ? (
-        <div className="p-2 cursor-pointer" onClick={() => toggleContent()}>
+        <div className="p-1 cursor-pointer" onClick={() => toggleContent()}>
           <div className="flex flex-row p-2 justify-between rounded hover:bg-slate-300 transition-all duration-300">
             <div className="flex flex-row">
-              <AppIcon name={icon} className="mr-3" />
+              <AppIcon size={20} name={icon} className="mr-3" />
               {name}
             </div>
             <div>
-              <AppIcon name={isContentOpen ? "ChevronUp" : "ChevronDown"} />
+              <AppIcon
+                size={20}
+                name={isContentOpen ? "ChevronUp" : "ChevronDown"}
+              />
             </div>
           </div>
         </div>
       ) : (
-        <Link href={path} className="p-2 block">
+        <Link href={path} className="p-1 block">
           <div className="flex flex-row p-2 rounded hover:bg-slate-300 transition-all duration-300">
-            <AppIcon name={icon} className="mr-3" />
+            <AppIcon size={20} name={icon} className="mr-3" />
             {name}
           </div>
         </Link>

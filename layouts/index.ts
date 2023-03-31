@@ -1,0 +1,9 @@
+export { default as FormCardLayout } from "./FormCardLayout";
+export { default as FormCardInnerLayout } from "./FormCardInnerLayout";
+export { default as DashboardLayout } from "./DashboardLayout";
+export { default as DashboardInnerLayout } from "./DashboardInnerLayout";
+export { default as TranslationLayout } from "./TranslationLayout";
+export { default as GatewayLayout } from "./GatewayLayout";
+export { default as NotificationLayout } from "./NotificationLayout";
+export { default as UserDropdownLayout } from "./UserDropdownLayout";
+export { default as MobileDropdownLayout } from "./MobileDropdownLayout";

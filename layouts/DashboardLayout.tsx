@@ -28,7 +28,7 @@ const DashboardLayout = ({ className, children }: DashboardProps) => {
         <div
           className={`${
             isSidebarOpen
-              ? "opacity-0 pointer-events-none max-sm:opacity-50 max-sm:pointer-events-auto"
+              ? "opacity-0 pointer-events-none max-md:opacity-50 max-md:pointer-events-auto"
               : "opacity-0 pointer-events-none"
           } fixed inset-0 z-10 bg-black transition-opacity duration-300`}
           onClick={toggleSidebar}
@@ -45,7 +45,7 @@ const DashboardLayout = ({ className, children }: DashboardProps) => {
           <NavigationBar onToggleSidebar={toggleSidebar} />
           <main
             className={classNames(
-              "overflow-x-hidden overflow-y-auto bg-gray-100 p-2 flex flex-row flex-wrap",
+              "overflow-x-hidden overflow-y-auto bg-gray-100 p-2 flex-grow",
               className
             )}
           >

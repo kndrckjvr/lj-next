@@ -6,7 +6,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Smart Monitoring</title>
+        <title>v5.2.1 Smart Monitoring</title>
       </Head>
       <Component {...pageProps} />
     </>

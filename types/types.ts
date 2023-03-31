@@ -14,6 +14,16 @@ export interface FormInputProps
   errorMessage?: string;
 }
 
+export interface FormCardInnerLayoutProps
+  extends React.HTMLAttributes<HTMLDivElement> {
+  children?: React.ReactNode;
+}
+
+export interface FormCardLayoutProps
+  extends React.HTMLAttributes<HTMLDivElement> {
+  children?: React.ReactNode;
+}
+
 export interface SidebarData {
   name: string;
   icon: IconName;
@@ -39,6 +49,7 @@ export interface SidebarChildData {
 
 export interface SidebarChildProps {
   name: string;
+  index: number;
   icon?: IconName;
   path: string;
 }
@@ -53,6 +64,11 @@ export interface DashboardProps extends React.HTMLAttributes<HTMLDivElement> {
   gap?: string | number;
 }
 
+export interface DashboardInnerLayoutProps
+  extends React.HTMLAttributes<HTMLDivElement> {
+  children?: React.ReactNode;
+}
+
 export interface NavigationBar {
   onToggleSidebar: () => void;
 }
@@ -61,4 +77,11 @@ export interface NavigationBarIconProps {
   icon: IconName;
   badge?: string | number;
   badgeColor?: string;
+  children?: React.ReactNode;
+  dropdownClassName?: string;
+}
+
+export interface PageTitleProps {
+  pageTitle: string;
+  subTitle?: string;
 }

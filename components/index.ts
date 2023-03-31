@@ -7,3 +7,4 @@ export { default as SidebarItem } from "./SidebarItem";
 export { default as SidebarItemChild } from "./SidebarItemChild";
 export { default as AppIcon } from "./AppIcon";
 export { default as NavigationBarIcon } from "./NavigationBarIcon";
+export { default as PageTitle } from "./PageTitle";

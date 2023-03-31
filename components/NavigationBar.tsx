@@ -1,11 +1,18 @@
+import {
+  GatewayLayout,
+  MobileDropdownLayout,
+  NotificationLayout,
+  TranslationLayout,
+  UserDropdownLayout,
+} from "@/layouts";
 import { NavigationBar } from "@/types/types";
 import { AppIcon, NavigationBarIcon } from ".";
 
 const NavigationBar = ({ onToggleSidebar }: NavigationBar) => {
   return (
     <>
-      <header className="flex-shrink-0">
-        <div className="bg-white flex flex-row shadow w-full">
+      <header className="flex-shrink-0 z-10">
+        <div className="bg-white flex flex-row drop-shadow-md w-full">
           <div className="flex flex-row items-center justify-between flex-grow">
             <div className="flex flex-row items-center py-[16px]">
               <AppIcon
@@ -18,21 +25,33 @@ const NavigationBar = ({ onToggleSidebar }: NavigationBar) => {
               </h1>
             </div>
             <div className="flex flex-row max-sm:hidden">
-              <NavigationBarIcon icon="Globe" />
+              <NavigationBarIcon icon="Globe" dropdownClassName="w-44 right-auto">
+                <TranslationLayout />
+              </NavigationBarIcon>
               <NavigationBarIcon
                 icon="HardDrive"
-                badge={3}
-                badgeColor={"bg-green-500"}
-              />
+                badge={10}
+                badgeColor={"bg-green-600"}
+                dropdownClassName="w-96 max-h-60 overflow-y-auto"
+              >
+                <GatewayLayout />
+              </NavigationBarIcon>
               <NavigationBarIcon
                 icon="Bell"
-                badge={3}
+                badge={10}
                 badgeColor={"bg-red-700"}
-              />
-              <NavigationBarIcon icon="User" />
+                dropdownClassName="w-96 max-h-60 overflow-y-auto"
+              >
+                <NotificationLayout />
+              </NavigationBarIcon>
+              <NavigationBarIcon icon="User" dropdownClassName="w-44">
+                <UserDropdownLayout />
+              </NavigationBarIcon>
             </div>
             <div className="hidden max-sm:block">
-              <NavigationBarIcon icon="MoreVertical" />
+              <NavigationBarIcon icon="MoreVertical" dropdownClassName="w-44">
+                <MobileDropdownLayout />
+              </NavigationBarIcon>
             </div>
           </div>
         </div>

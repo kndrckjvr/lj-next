@@ -22,6 +22,11 @@ const Sidebar = () => {
           icon: "Home",
         },
         {
+          name: "Smart Water Meter New",
+          path: "/dashboard/smartwatermeter",
+          icon: "Home",
+        },
+        {
           name: "Smart Pump System",
           path: "/dashboard/smartpumpsystem",
           icon: "Home",
@@ -100,6 +105,7 @@ const Sidebar = () => {
                 <SidebarItemChild
                   name={child.name}
                   path={child.path}
+                  index={childKey}
                   key={childKey}
                 />
               ))}
